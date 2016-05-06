@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8">
+	<!-- <title>Weather</title> -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+  </head>
+  <body>
+
+    <div class="header">
+      <div class="container">
+        <h1>WEATHERMAN</h1>
+      </div>
+    </div>
+
+    <div class="main" >
+      <div class="container">
+        <div class="col-md-9">
+
+
+				  <div ng-view></div>
+
+
+        </div>
+        <div class="col-md-3 buttons">
+          <button class="btn btn-block">Cherkassy</button>
+          <button class="btn btn-block">Kharkiv</button>
+          <button class="btn btn-block">Kiev</button>
+        </div>
+      </div>
+    </div>
+
+	  		<!-- Angular -->
+	  <script src="bower_components/angular/angular.js"></script>
+	  <script src="bower_components/angular-route/angular-route.js"></script>
+
+				<!-- Modules -->
+	  <script src="js/app.js"></script>
+	  
+	  		<!-- Controllers -->
+	  <script src="js/controllers/controllers.js"></script>
+
+	  		<!-- Services -->
+	  <!-- <script src="js/services/takeAjax.js"></script> -->
+
+	<!--   <script src="js/filters.js"></script>  --> 	
+  </body>
+</html>  
