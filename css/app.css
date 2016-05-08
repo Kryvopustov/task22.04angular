@@ -7,9 +7,14 @@ body {
 .btn {
 	background: grey;
 	font-weight: bold;
-	margin-bottom: 30px;
+	/*margin-bottom: 30px;*/
 }
 
 .buttons {
 	margin-top: 100px;
+}
+
+.btn a {
+	text-decoration: none;
+	color: black;
 }
