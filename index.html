@@ -31,7 +31,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="x in allInfo.list">
+              <tr ng-repeat="x in allInfo.list | limitTo:9">
                 <td>{{x.dt_txt | date}}</td>
                 <td>{{kelvinToCelsius(x.main.temp)}} °C</td>
                 <td>{{x.main.pressure}} hpa</td>
@@ -52,6 +52,10 @@
           </select>
           </p>
           <button class="btn btn-block" ng-repeat="x in button.list | filter:query | orderBy:sortBy" ng-click="myClick(x.id)"><a>{{x.name}}</a></button>
+        </div>
+
+        <div>
+          <p>{{x.name}}</p>
         </div>
 
       </div>
