@@ -18,9 +18,11 @@
       <div class="container">
         <div class="col-md-9">
 
-          <h2>{{allInfo.city.name}}</h2>
+          <div class="loader" ng-show="!showSpinner"></div>
+         
+          <h2 ng-show="showTable">{{allInfo.city.name}}</h2>
 
-          <table class="table">
+          <table class="table" ng-show="showTable">
             <thead>
               <tr>
                 <th>Date</th>
@@ -31,7 +33,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="x in allInfo.list | limitTo:9">
+              <tr ng-repeat="x in allInfo.list | limitTo:17">
                 <td>{{x.dt_txt | date}}</td>
                 <td>{{kelvinToCelsius(x.main.temp)}} °C</td>
                 <td>{{x.main.pressure}} hpa</td>
@@ -54,10 +56,6 @@
           <button class="btn btn-block" ng-repeat="x in button.list | filter:query | orderBy:sortBy" ng-click="myClick(x.id)"><a>{{x.name}}</a></button>
         </div>
 
-        <div>
-          <p>{{x.name}}</p>
-        </div>
-
       </div>
     </div>
 
@@ -72,7 +70,7 @@
     <script src="js/controllers/controllers.js"></script>
 
         <!-- Services -->
-    <!-- <script src="js/services/takeAjax.js"></script> -->
+    <script src="js/services/takeAjax.js"></script>
 
   <!--   <script src="js/filters.js"></script>  -->   
   </body>

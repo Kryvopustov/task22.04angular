@@ -1,10 +1,17 @@
 app.factory('takeAjax', ['$http', function($http){
-	return $http.get("http://api.openweathermap.org/data/2.5/forecast/city?id=710791&APPID=58f420f86326565c7d552af951c62bbb")
-	.success(function(data){
-		return data;
-	})
-	.error(function(err){
-		return err;
-	});
-
+  var 
+    buttonList = {};
+    url = '';
+  _getButtonList = function() {
+    url = 'http://api.openweathermap.org/data/2.5/box/city?bbox=30.0,48.0,33.0,51.0,1111&cluster=yes&APPID=58f420f86326565c7d552af951c62bbb';
+    return $http.get(url);
+  };
+  _getById = function(id) {
+    url = 'http://api.openweathermap.org/data/2.5/forecast/city?id='+id+'&APPID=58f420f86326565c7d552af951c62bbb';
+    return $http.get(url);
+  }
+  return angular.extend(buttonList, {
+    getButtonList: _getButtonList,
+    getById: _getById
+  });  
 }]);

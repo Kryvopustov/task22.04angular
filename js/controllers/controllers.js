@@ -1,16 +1,28 @@
 var appModuleControllers = angular.module('appModuleControllers', []);
 
-appModuleControllers.controller('mainCtrl', ['$scope','$http', 
-  function($scope, $http){
-    $http.get('http://api.openweathermap.org/data/2.5/box/city?bbox=30.0,48.0,33.0,51.0,1111&cluster=yes&APPID=58f420f86326565c7d552af951c62bbb').success(function(data){
-      $scope.button = data;
-  })
+appModuleControllers.controller('mainCtrl', ['$scope','takeAjax', '$http', 
+
+  function($scope, takeAjax){
+    takeAjax.getButtonList().then(function(response){
+      $scope.button = response.data;
+      //console.log(response);
+    });
 
   $scope.myClick = function(id){
-    $http.get('http://api.openweathermap.org/data/2.5/forecast/city?id='+id+'&APPID=58f420f86326565c7d552af951c62bbb').success(function(data){
-      $scope.allInfo = data;
-      console.log(data);
-    }); 
+
+    $scope.showTable = false;
+    $scope.showSpinner = false;
+
+    //console.log(id);
+    
+    takeAjax.getById(id).then(function(response){
+      $scope.allInfo = response.data;
+
+      $scope.showSpinner = true;
+      $scope.showTable = true;
+
+      //console.log(response)
+    })
   };
 
   $scope.kelvinToCelsius = function(temp) {
@@ -20,4 +32,6 @@ appModuleControllers.controller('mainCtrl', ['$scope','$http',
 
   $scope.sortBy = 'name';
 
+  $scope.showTable = false;
+  $scope.showSpinner = true;
 }])
