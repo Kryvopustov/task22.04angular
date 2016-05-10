@@ -1,20 +1,32 @@
 body {
-	background: #D3D3D3;
-	/*background: url(http://cs6.pikabu.ru/post_img/big/2015/02/11/12/1423687138_282821320.jpg) fixed;
-	background-size: 100%;*/
+  background: #D3D3D3;
+  /*background: url(http://cs6.pikabu.ru/post_img/big/2015/02/11/12/1423687138_282821320.jpg) fixed;
+  background-size: 100%;*/
 }
 
+select {
+  width: 200px;
+}
+input {
+  width: 200px;
+}
+
+button {
+  word-wrap: break-word;
+}
+
+/*
 .btn {
-	background: grey;
-	font-weight: bold;
-	/*margin-bottom: 30px;*/
+  background: grey;
+  font-weight: bold;
+  /*margin-bottom: 30px;*//*
 }
 
 .buttons {
-	margin-top: 100px;
+  margin-top: 100px;
 }
 
 .btn a {
-	text-decoration: none;
-	color: black;
-}
+  text-decoration: none;
+  color: black;
+}*/

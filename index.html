@@ -2,9 +2,9 @@
 <html ng-app="myApp">
   <head>
     <meta charset="UTF-8">
-	<title>Weather</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/app.css">
+  <title>Weather</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
   </head>
   <body>
 
@@ -18,9 +18,7 @@
       <div class="container">
         <div class="col-md-9">
 
-
           <h2>{{allInfo.city.name}}</h2>
-
 
           <table class="table">
             <thead>
@@ -43,27 +41,35 @@
             </tbody>
           </table>
 
+        </div>
 
-        </div>
         <div class="col-md-3 buttons">
-          <button class="btn btn-block" ng-repeat="x in button.list" ng-click="myClick(x.id)"><a>{{x.name}}111</a></button>
+          <p>Search: <input ng-model="query.name"></p>
+          <p>Sort by: 
+          <select ng-model="sortBy">
+            <option value="name">Alphabetical A-Z</option>
+            <option value="-name">Alphabetical Z-A</option>
+          </select>
+          </p>
+          <button class="btn btn-block" ng-repeat="x in button.list | filter:query | orderBy:sortBy" ng-click="myClick(x.id)"><a>{{x.name}}</a></button>
         </div>
+
       </div>
     </div>
 
-	  		<!-- Angular -->
-	  <script src="bower_components/angular/angular.js"></script>
-<!-- 	  <script src="bower_components/angular-route/angular-route.js"></script> -->
+        <!-- Angular -->
+    <script src="bower_components/angular/angular.js"></script>
+<!--    <script src="bower_components/angular-route/angular-route.js"></script> -->
 
-				<!-- Modules -->
-	  <script src="js/app.js"></script>
-	  
-	  		<!-- Controllers -->
-	  <script src="js/controllers/controllers.js"></script>
+        <!-- Modules -->
+    <script src="js/app.js"></script>
+    
+        <!-- Controllers -->
+    <script src="js/controllers/controllers.js"></script>
 
-	  		<!-- Services -->
-	  <!-- <script src="js/services/takeAjax.js"></script> -->
+        <!-- Services -->
+    <!-- <script src="js/services/takeAjax.js"></script> -->
 
-	<!--   <script src="js/filters.js"></script>  --> 	
+  <!--   <script src="js/filters.js"></script>  -->   
   </body>
 </html>  
