@@ -8,6 +8,11 @@ appModuleControllers.controller('mainCtrl', ['$scope','takeAjax', '$http',
       //console.log(response);
     });
 
+  $scope.sortBy = 'name';
+
+  $scope.showTable = false;
+  $scope.showSpinner = true;
+
   $scope.myClick = function(id){
 
     $scope.showTable = false;
@@ -29,9 +34,4 @@ appModuleControllers.controller('mainCtrl', ['$scope','takeAjax', '$http',
     var celsius = temp - 273.15;
     return celsius.toFixed(2);
   };
-
-  $scope.sortBy = 'name';
-
-  $scope.showTable = false;
-  $scope.showSpinner = true;
 }])

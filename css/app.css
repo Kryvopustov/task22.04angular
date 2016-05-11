@@ -6,12 +6,12 @@ select {
   width: 200px;
 }
 input {
-  width: 200px;
+  width: 172px;
 }
 
-button {
+/*button {
   word-wrap: break-word;
-}
+}*/
 
 .header {
   font-family: Segoe Print;
