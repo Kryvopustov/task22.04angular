@@ -8,7 +8,9 @@ select {
 input {
   width: 172px;
 }
-
+.btn {
+  margin: 5px;
+}
 /*button {
   word-wrap: break-word;
 }*/

@@ -1,0 +1,19 @@
+    <div class="header">
+      <div class="container">
+        <h1>WEATHERMAN</h1>
+      </div>
+    </div>
+
+    <div class="main" > <!-- ng-controller="mainCtrl" -->
+      <div class="container">
+
+        <p>Search: <span class="badge">{{filteredButton.length}}</span><input ng-model="query.name"></p>    
+          <p>Sort by:
+            <select ng-model="sortBy">
+              <option value="name">Alphabetical A-Z</option>
+              <option value="-name">Alphabetical Z-A</option>
+            </select>
+          </p>
+          <button class="btn" ng-repeat="x in filteredButton = (city.list | filter:query) | orderBy:sortBy" name="buttonCity"><a href="#/cities/{{x.id}}">{{x.name}}</a></button>
+      </div>
+    </div>

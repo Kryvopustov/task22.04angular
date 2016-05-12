@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="loader" ng-show="!showSpinner"></div>
+  <h2 ng-show="showTable">
+    {{allInfo.city.name}}
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Change City
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#/cities">Home</a></li>
+      <li role="separator" class="divider"></li>
+      <li><input ng-model="query.name" placeholder="Search for..." style="margin-left: 18px;"></li>
+      <li role="separator" class="divider"></li>
+      <li ng-repeat="x in city.list | filter:query"><a href="#/cities/{{x.id}}">{{x.name}}</a></li>
+    </ul>
+  </div>
+
+
+  </h2>
+  <table class="table" ng-show="showTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Temp</th>
+        <th>Pressure</th>
+        <th>Wind speed</th>
+        <th>Weather</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in allInfo.list | limitTo:17">
+        <td>{{x.dt_txt | date}}</td>
+        <td>{{kelvinToCelsius(x.main.temp)}} °C</td>
+        <td>{{x.main.pressure}} hpa</td>
+        <td>{{x.wind.speed}} m/s</td>
+        <td>{{x.weather[0].description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

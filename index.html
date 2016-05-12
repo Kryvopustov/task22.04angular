@@ -8,57 +8,17 @@
   </head>
   <body>
 
-    <div class="header">
-      <div class="container">
-        <h1>WEATHERMAN</h1>
-      </div>
-    </div>
+    <div ng-view></div>
 
-    <div class="main" ng-controller="mainCtrl">
-      <div class="container">
+        <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
-        <div class="col-md-9">
-          <div class="loader" ng-show="!showSpinner"></div>
-          <h2 ng-show="showTable">{{allInfo.city.name}}</h2>
-          <table class="table" ng-show="showTable">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Temp</th>
-                <th>Pressure</th>
-                <th>Wind speed</th>
-                <th>Weather</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="x in allInfo.list | limitTo:17">
-                <td>{{x.dt_txt | date}}</td>
-                <td>{{kelvinToCelsius(x.main.temp)}} °C</td>
-                <td>{{x.main.pressure}} hpa</td>
-                <td>{{x.wind.speed}} m/s</td>
-                <td>{{x.weather[0].description}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <!-- Bootstrap js -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-        <div class="col-md-3 buttons">
-          <p>Search: <span class="badge">{{filteredButton.length}}</span><input ng-model="query.name"></p>    
-          <p>Sort by:
-            <select ng-model="sortBy">
-              <option value="name">Alphabetical A-Z</option>
-              <option value="-name">Alphabetical Z-A</option>
-            </select>
-          </p>
-
-          <button class="btn btn-block" ng-repeat="x in filteredButton = (button.list | filter:query) | orderBy:sortBy" ng-click="myClick(x.id)" name="buttonCity"><a>{{x.name}}</a></button>
-        </div>
-
-      </div>
-    </div>
         <!-- Angular -->
     <script src="bower_components/angular/angular.js"></script>
-    <!--<script src="bower_components/angular-route/angular-route.js"></script> -->
+    <script src="bower_components/angular-route/angular-route.js"></script> 
 
         <!-- Modules -->
     <script src="js/app.js"></script>
