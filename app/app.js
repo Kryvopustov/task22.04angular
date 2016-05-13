@@ -6,12 +6,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     $stateProvider
     .state('home',{
       url: '/home',
-      templateUrl: 'home/home.html',
+      templateUrl: 'app/home/home.html',
       controller: 'homeCtrl'
     })
     .state('city',{
       url: '/cities/:id',
-      templateUrl: 'city/city.html',
+      templateUrl: 'app/city/city.html',
       controller: 'cityCtrl'
     })
 
